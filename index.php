@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Cadastro de Paciente</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <h1>Cadastro de Paciente</h1>
