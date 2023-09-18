@@ -77,6 +77,9 @@ a {
     text-decoration: none;
     color: #333;
 }
+.btn-select{
+    width: 100%;
+}
 
 a:hover {
     text-decoration: underline;

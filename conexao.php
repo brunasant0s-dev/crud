@@ -1,12 +1,12 @@
 <!-- Bruna Cecilia e Emilly Vilela de Souza -->
 <?php
     $hostname = 'localhost';
-    $user = 'root';
+    $bancodedados = 'banco3_crud';
+    $usuario = 'root';
     $senha = '';
-    $server = 'banco3_crud';
 
-    $mysqli = new mysqli($hostname, $user, $senha, $server);
-    if ($mysqli->error){
-        die ('Erro de conexão: '.$mysqli->error);
+    $mysqli = new mysqli($hostname, $usuario, $senha, $bancodedados);
+    if($mysqli->connect_error){
+        die("Erro ao conectar: ".$mysqli->connect_error);
     }
 ?>
