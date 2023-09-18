@@ -3,7 +3,7 @@
     $hostname = 'localhost';
     $user = 'root';
     $senha = '';
-    $server = 'db_aula2';
+    $server = 'banco3_crud';
 
     $mysqli = new mysqli($hostname, $user, $senha, $server);
     if ($mysqli->error){
