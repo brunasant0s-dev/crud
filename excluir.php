@@ -1,20 +1,40 @@
 <?php
-include 'conexao.php'; // Inclua o arquivo de conexão ao banco de dados
+include 'conexao.php';
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    
-    // Execute a consulta SQL para excluir o paciente com base no ID
-    $sql = "DELETE FROM paciente WHERE id = $id";
-    
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmacao'])) {
+    // Se a confirmação for verdadeira, exclua todos os dados de pacientes
+    $sql = "DELETE FROM paciente";
     if ($mysqli->query($sql)) {
-        echo "Paciente excluído com sucesso.";
+        echo "Todos os dados de pacientes foram excluídos com sucesso!";
     } else {
-        echo "Erro ao excluir o paciente: " . $mysqli->error;
+        echo "Erro ao excluir dados de pacientes: " . $mysqli->error;
     }
-} else {
-    echo "ID do paciente não especificado.";
 }
+
 ?>
 
-<p><a href="index.php">Voltar para a lista de pacientes</a></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Excluir Todos os Pacientes</title>
+</head>
+<body>
+    <div class="content">
+        <h1>Excluir Todos os Pacientes</h1>
+        <p>Tem certeza de que deseja excluir todos os dados de pacientes? Esta ação não pode ser desfeita.</p>
+       
+        <form method="POST">
+            <label for="confirmacao">Digite "SIM" para confirmar:</label>
+            <input type="text" name="confirmacao" id="confirmacao" required>
+            <input type="submit" value="Excluir Todos os Dados">
+        </form>
+
+        <br>
+        <a href="consultar.php">Voltar para a Lista de Pacientes</a> <br>
+        <a href="index.php">Voltar para o login</a>
+    </div>
+</body>
+</html>
