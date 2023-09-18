@@ -3,7 +3,7 @@
 include 'conexao.php';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -17,10 +17,11 @@ include 'conexao.php';
         <h1>Pacientes</h1>
         <table border="1">
             <tr>
-
                 <th>Nome</th>
                 <th>CPF</th>
                 <th>Convênio</th>
+                <th>Editar</th>
+                <th>Excluir</th>
             </tr>
             <?php
             $sql = "SELECT * FROM paciente";
@@ -30,6 +31,8 @@ include 'conexao.php';
                             <td>" . $paciente['nome_paciente'] . "</td>
                             <td>" . $paciente['cpf_paciente'] . "</td>
                             <td>" . $paciente['convenio_paciente'] . "</td>
+                            <td><a href='editar.php?id=" . $paciente['id_paciente'] . "'>Editar</a></td>
+                            <td><a href='excluir.php?id=" . $paciente['id_paciente'] . "'>Excluir</a></td>
                         </tr>";
             }
             ?>
